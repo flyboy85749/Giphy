@@ -36,27 +36,6 @@ function renderButtons() {
 // Then make a function call that takes each topic in the array and remakes the buttons on the page.
 renderButtons()
 
-// function renderNewButtons() {
-//   // empty div
-//   $('.guest-buttons').empty()
-
-//   for (i = 0; i > topics.length; i++) {
-//     // store for use with all buttons
-//     const button = $('<button>')
-
-//     // button class="topic"
-//     button.addClass('topic')
-
-//     // add an attribute
-//     button.attr('data-name', topics[i])
-
-//     // add the text for the buttons
-//     button.text(topics[i])
-
-//     // now, display the buttons
-//     $('.buttons').append(button)
-//   }
-// }
 // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
 // This function handles events where a topic button is clicked
 
@@ -78,6 +57,7 @@ $('#add-topic').on('click', function(event) {
 // Adding a click event listener to all elements with a class of "topic"
 $(document).on('click', '.topic', displayGifs)
 
+
 function displayGifs() {
   let topic = $(this).attr('data-name')
 
@@ -90,43 +70,61 @@ function displayGifs() {
     url: queryURL,
     method: 'GET'
   }).then(function(response) {
-    console.log(response.data)
-    // console.log(response.data[0].images.downsized_still.url) image url
-    // Creating a div to hold the still images
-    let gifDiv = $("<div class='gif-still'>")
+    // $("#images").text(response.data.images)
+    let results = response.data
 
-    // Storing the rating data
-    let rating = response.data[i].rating
+    // Looping over every result item
+    for (var i = 0; i < results.length; i++) {
+      // filter out not g ratings
+      if (results[i].rating !== 'r' && results[i].rating !== 'pg-13') {
+        console.log(response.data) // image url
+        // Creating a div to hold the still images
+        let gifDiv = $("<div class='gif-still'>")
 
-    // Creating an element to display the rating
-    let p = $('<p>').text('Rating: ' + rating)
+        // // Retrieving the URL for the image
+        // let imgURL = results[i].images.fixed_height_still.url
+        let gifImage = $("<img>")
+        // // Creating an element to hold the image
+        // let gifImage = $('<img>').attr('src', imgURL)
+        gifImage.attr("src", results[i].images.fixed_height_still.url);
+        gifImage.attr('class', 'gif')
+        gifImage.attr('data-state', 'still')
+        gifImage.attr('data-animate', results[i].images.fixed_height.url)
+        gifImage.attr('data-still', results[i].images.fixed_height_still.url)
 
-    // Displaying the rating
-    gifDiv.append(p)
+        // Appending the image
+        gifDiv.prepend(gifImage)
 
-    // Retrieving the URL for the image
-    let imgURL = response.data[0].images.fixed_height_small_still.url
+        // Storing the rating data
+        let rating = results[i].rating
 
-    // Creating an element to hold the image
-    let image = $('<img>').attr('src', imgURL)
+        // Creating an element to display the rating
+        let p = $('<p>').text('Rating: ' + rating)
 
-    // Appending the image
-    gifDiv.append(image)
+        // Displaying the rating
+        gifDiv.append(p)
 
-    // Putting the newest gif  above the previous gifs
-    $('#images').prepend(gifDiv)
+        // Putting the newest gif  above the previous gifs
+        $('#images').prepend(gifDiv)
+      }
+    }
   })
 }
 
-// 4. When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
+// to animate or not to animate
+$(document).on("click", ".gif", function ()  {
+  // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
+  let state = $(this).attr('data-state')
+  // If the clicked image's state is still, update its src attribute to what its data-animate value is.
+  // Then, set the image's data-state to animate
+  // Else set src to the data-still value
+  if (state === 'still') {
+    $(this).attr('src', $(this).attr('data-animate'))
+    $(this).attr('data-state', 'animate')
+  } else {
+    $(this).attr('src', $(this).attr('data-still'))
+    $(this).attr('data-state', 'still')
+  }
+})
 
-// 5. Under every gif, display its rating (PG, G, so on).
-//    * This data is provided by the GIPHY API.
-//    * Only once you get images displaying with button presses should you move on to the next step.
-
-// 7. Deploy your assignment to Github Pages.
-
-// 8. **Rejoice**! You just made something really cool.
-
-// Example queryURL for Giphy API
 
