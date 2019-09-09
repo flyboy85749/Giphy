@@ -6,7 +6,8 @@ const topics = [
   'flying',
   'poetry',
   'photography',
-  'landscapes'
+  'landscapes',
+  'chocolate'
 ]
 
 //     2. Your app should take the topics in this array and create buttons in your HTML.
@@ -48,6 +49,7 @@ $('#add-topic').on('click', function(event) {
 
   // Adding topic from the textbox to our array
   topics.push(topic)
+  
   // console.log(topics)
 
   // Calling renderButtons which handles the processing of our topics array
