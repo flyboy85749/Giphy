@@ -1,0 +1,15 @@
+.jumbotron {
+    padding: 20px 20px 10px 15px;
+}
+
+button {
+    margin: 25px 5px 25px 5px;
+}
+
+.bold {
+    font-weight: 900;
+}
+
+.buttons-guest {
+    margin: 25px 5px 25px 5px;
+}
