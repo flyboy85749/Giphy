@@ -1,5 +1,7 @@
 // 1. Before you can make any part of your site work, you need to create an array of strings, each one related to a topic that interests you. Save it to a variable called `topics`.
 
+/* I want to add user inputs to another array, to be able to style and display them differently. */
+
 const topics = [
   'pets',
   'cooking',
