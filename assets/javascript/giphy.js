@@ -10,11 +10,7 @@ const topics = [
   'photography',
   'landscapes',
   'chocolate'
-];
-
-const yours = ['pizza', 'lasagna'];
-
-
+]
 
 //     2. Your app should take the topics in this array and create buttons in your HTML.
 //    * Try using a loop that appends a button for each string in the array.
@@ -43,44 +39,19 @@ function renderButtons() {
 // Then make a function call that takes each topic in the array and remakes the buttons on the page.
 renderButtons()
 
-// buttons for the users favorites
-function renderYours() {
-  // empty div
-  $('.yours').empty()
-
-  for (i = 0; i < yours.length; i++) {
-    // store for use with all buttons
-    const button = $('<button>')
-
-    // button class="topic"
-    button.addClass('your')
-
-    // add an attribute
-    button.attr('data-name', yours[i])
-
-    // add the text for the buttons
-    button.text(yours[i])
-
-    // now, display the buttons
-    $('.yours').append(button)
-  }
-}
-
-renderYours()
-
 // 3. When the user clicks on a button, the page should grab 10 static, non-animated gif images from the GIPHY API and place them on the page.
 // This function handles events where a topic button is clicked
 
-$('#add-topic').on('click', function (event) {
+$('#add-topic').on('click', function(event) {
   event.preventDefault()
   // This line grabs the input from the textbox
   let topic = $('#topic-input')
     .val()
     .trim()
 
-  // Adding topic from the textbox to yours array
-  topics.push(yours)
-
+  // Adding topic from the textbox to our array
+  topics.push(topic)
+  
   // console.log(topics)
 
   // Calling renderButtons which handles the processing of our topics array
@@ -102,7 +73,7 @@ function displayGifs() {
   $.ajax({
     url: queryURL,
     method: 'GET'
-  }).then(function (response) {
+  }).then(function(response) {
     // $("#images").text(response.data.images)
     let results = response.data
 
@@ -145,7 +116,7 @@ function displayGifs() {
 }
 
 // to animate or not to animate
-$(document).on("click", ".gif", function () {
+$(document).on("click", ".gif", function ()  {
   // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
   let state = $(this).attr('data-state')
   // If the clicked image's state is still, update its src attribute to what its data-animate value is.

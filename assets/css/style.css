@@ -29,11 +29,9 @@ img {
     background-color: aqua;
 }
 
-@media only screen and (max-width: 993px) {
-    
-}
 
-@media only screen and (max-width: 768px) {
+
+/* @media only screen and (max-width: 768px) {
 
     .display-3 {
         font-size: 30px;
@@ -56,4 +54,4 @@ img {
     blockquote {
         float: left;
     }
-}
+} */
