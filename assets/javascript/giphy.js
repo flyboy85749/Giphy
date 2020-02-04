@@ -45,7 +45,7 @@ renderButtons()
 $('#add-topic').on('click', function(event) {
   event.preventDefault()
   // This line grabs the input from the textbox
-  let topic = $('#topic-input')
+  let your = $('#topic-input')
     .val()
     .trim()
 
