@@ -83,7 +83,7 @@ function displayGifs() {
       if (results[i].rating !== 'r' && results[i].rating !== 'pg-13') {
         console.log(response.data) // image url
         // Creating a div to hold the still images
-        let gifDiv = $("<div class='gif-still'>")
+        let gifDiv = $(`<div class="card"><div class="gif-still">`)
 
         // // Retrieving the URL for the image
         // let imgURL = results[i].images.fixed_height_still.url

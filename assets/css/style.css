@@ -16,13 +16,25 @@ button {
 
 
 
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    width: 300px;
+}
+
+p {
+    margin-left: 10px;
+}
+
+
 #images {
    display: inline;
 }
 
 img {
     margin: 10px;
-
+    width: 280px;
 }
 
 .topic {
