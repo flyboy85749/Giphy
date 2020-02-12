@@ -7,7 +7,7 @@ Here are a few of my favorite things. You can add yours too, and then see ten im
 
 ## Usage 
 
-This site is a fun way for the user to add some of their favorite things, and then see a button created with that topic. Plus, when they click on the button, ten images of that particular subject appear below the list of items. Once the images appear, the user can also click on the still image to make it animate.
+This site is a fun way for the user to add some of their favorite things, and then see a button created with that topic. Plus, when they click on the button, ten images of that particular subject appear below the list of items, each in an individual card display. Once the images appear, the user can also click on the still images to make them animate.
 
 ## Languages Used
 Html, css, javascript, jquery, Bootstrap, ajax, Giphy API
