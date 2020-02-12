@@ -1,5 +1,5 @@
 # Giphy
-Here are a few of my favorite things. You can add yours too, and then see ten images of your favorites when you click on the generated buttons. When you click on a still gif, it should animate.
+Here are a few of my favorite things. You can add yours too, and then see ten images of your favorites when you click on the generated buttons. When you click on a still gif, it will animate. Pretty cool, huh? Click on it again, and it will return to its original state. (State will be addressed in upcoming projects).
 
 ## Screenshot
 
