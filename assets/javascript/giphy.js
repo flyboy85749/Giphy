@@ -91,7 +91,7 @@ function displayGifs() {
         // // Creating an element to hold the image
         // let gifImage = $('<img>').attr('src', imgURL)
         gifImage.attr("src", results[i].images.fixed_height_still.url);
-        gifImage.attr('class', 'gif, item')
+        gifImage.attr('class', 'gif')
         gifImage.attr('data-state', 'still')
         gifImage.attr('data-animate', results[i].images.fixed_height.url)
         gifImage.attr('data-still', results[i].images.fixed_height_still.url)
