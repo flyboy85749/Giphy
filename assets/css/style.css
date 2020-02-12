@@ -14,28 +14,21 @@ button {
     display: none;
 }
 
-
-
-.card {
+.container {
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
-    width: 300px;
+    padding: 5px;
 }
+
+.item {
+    margin: 5px;
+}
+
 
 p {
     margin-left: 10px;
 }
 
-
-#images {
-   display: inline;
-}
-
-img {
-    margin: 10px;
-    width: 280px;
-}
 
 .topic {
     background-color: aqua;
